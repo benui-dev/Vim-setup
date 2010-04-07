@@ -6,6 +6,13 @@ A big bundle of stuff I use when I want to quickstart my Vim setup to being actu
  * Project mangement / file browser (NERDtree)
  * Snippets
 
+# How to Use
+
+Designed to work with your existing .vimrc
+
+Just add the following at the top
+
+source ~/.vim/.common
 
 # Usual disclaimer stuff
 
