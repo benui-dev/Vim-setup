@@ -1,0 +1,13 @@
+# Ben's Vim Quickstart Junk
+
+A big bundle of stuff I use when I want to quickstart my Vim setup to being actually **useful**.
+
+ * Colourschemes I like (mostly dark)
+ * Project mangement / file browser (NERDtree)
+ * Snippets
+
+
+# Usual disclaimer stuff
+
+This is just a bundle of stuff I put together in early 2010, so if things are out of date, well update them.
+

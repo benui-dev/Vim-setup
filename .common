@@ -1,0 +1,151 @@
+function SuperConfigLook()
+  " Use 256 colors
+  set t_Co=256
+
+  colorscheme ben
+  syntax enable
+
+  set cmdheight=3
+  set showmatch " Show matching parents
+  set visualbell " Flash, don't beep
+  set laststatus=2 " Always display the status bar
+
+  " Ruler at the bottom
+  set ruler
+  set rulerformat=%40(%t%y:\ %l,%c%V\ \(%o\)\ %p%%%)
+  
+  " Show line numbers in the gutter.
+  set number
+  set numberwidth=4
+
+  set history=50 " Use history
+
+  set guioptions-=T " No toolbar
+
+
+  set statusline=[%n]\ %{ModifiedFlag()}%f\ %=%h%r%w\ (%v,%l)\ %P\ 
+endfunction
+
+function SuperConfigFeel()
+  " Set our tabs correctly... tab inserts 2 spaces.
+  set expandtab
+  set sts=4
+  set shiftwidth=4
+  set smartindent
+  filetype plugin indent on
+
+  set foldenable
+
+  set incsearch " Incremental search
+  set hlsearch
+  set ignorecase
+  "set smartcase
+
+  " set mouse=a " Mouse support
+  
+  " Turn off arrow keys, to make me learn HJKL
+  noremap  <Up> ""
+  noremap! <Up> <Esc>
+  noremap  <Down> ""
+  noremap! <Down> <Esc>
+  noremap  <Left> ""
+  noremap! <Left> <Esc>
+  noremap  <Right> ""
+  noremap! <Right> <Esc>
+
+  " Tab-related stuff.
+  nmap <C-Insert> :tabnew<CR>
+  nmap <C-Delete> :tabclose<CR>
+  
+  			
+  " Change windows with ctrl+shift+direction
+  noremap <C-H> <C-w>h
+  noremap <C-J> <C-w>j
+  noremap <C-K> <C-w>k
+  noremap <C-L> <C-w>l
+
+  noremap <C-s> :w<CR>
+
+
+  " Shortcut to rapidly toggle `set list`
+  nmap <leader>l :set list!<CR>
+  " Use the same symbols as TextMate for tabstops and EOLs
+  set listchars=tab:>\ ,eol:¬
+
+
+  set backspace=indent,eol,start
+
+  " Hidden buffers, so we don't have to save every time we unload a buffer
+  " from a window.
+  set hidden
+
+  " Display all wildcard matches when :e filena*<tab> -ing.
+  set wildmenu
+
+  set undolevels=50
+endfunction
+
+function ConfigPerlMode()
+
+endfunction
+
+
+function ConfigTags()
+  " Recursively look for "tags" files in current directory.
+  set tags=tags;/
+endfunction
+
+function ConfigAutoComplete()
+  " Completion even for one match.
+  set completeopt+="menuone"
+
+  " Color
+  highlight Pmenu      term=NONE cterm=NONE ctermfg=7 ctermbg=5 gui=NONE guifg=White guibg=Magenta
+  highlight PmenuSel   term=NONE cterm=NONE ctermfg=0 ctermbg=7 gui=NONE guifg=Black guibg=White
+  highlight PmenuSbar  term=NONE cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=White guibg=Black
+  highlight PmenuThumb term=NONE cterm=NONE ctermfg=0 ctermbg=7 gui=NONE guifg=Black guibg=White
+endfunction
+
+function SuperConfigCustomMappings()
+  nnoremap <silent><F2> <ESC>:TlistToggle<Return>
+  nnoremap <silent><F6> <ESC>:NERDTreeToggle<Return>
+  nnoremap <F4> :!perl %<cr>
+  nnoremap <F8> :!p4 edit %<cr>
+  
+  " Changing tabs via minibuf explorer
+  nnoremap <C-h> :bp<CR>
+  nnoremap <C-l> :bn<CR>
+endfunction
+
+function ModifiedFlag()
+  if (&modified)
+    return "*"
+  else
+    return " "
+  endif
+endfunction
+
+function ConfigMiniBufExplorer()
+  " minibufexpl.vim configuration
+  let g:miniBufExplMapWindowNavVim=0
+  let g:miniBufExplSplitBelow=0
+  let g:miniBufExplMapWindowNavArrows=0
+  let g:miniBufExplMapCTabSwitchBufs=1
+  let g:miniBufExplModSelTarget=1
+  let g:miniBufExplSplitToEdge=1
+endfunction
+
+" Load plugins
+
+" Config Auto Modes
+filetype plugin on
+autocmd BufNewFile,BufRead,BufWrite *.twiki setfiletype twiki
+autocmd BufNewFile,BufRead,BufWrite *.t     setfiletype perl 
+
+" Configure everything else
+" call ConfigTags()
+call ConfigAutoComplete()
+call SuperConfigFeel()
+call SuperConfigLook()
+call ConfigMiniBufExplorer()
+call SuperConfigCustomMappings()
