@@ -1,8 +1,9 @@
 " Vim color file
 "
-" Author: Tomas Restrepo <tomas@winterdom.com>
+" Author: Ben Humphreys
 "
 " Note: Based on the monokai theme for textmate
+" by Tomas Restrepo
 " by Wimer Hazenberg and its darker variant 
 " by Hamish Stuart Macpherson
 "
@@ -117,7 +118,7 @@ hi WildMenu        guifg=#66D9EF guibg=#000000
 "else
    hi Normal          guifg=#F8F8F2 guibg=#000000
    hi Comment         guifg=#465457
-   hi CursorLine                    guibg=#000000
+   hi CursorLine                    guibg=#111111
    hi CursorColumn                  guibg=#000000
    hi LineNr          guifg=#BCBCBC guibg=#000000
    hi NonText         guifg=#888888 guibg=#000000

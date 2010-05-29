@@ -33,6 +33,9 @@ function SuperConfigFeel()
   set shiftwidth=4
   set smartindent
   filetype plugin indent on
+  set tabstop=4
+
+  set whichwrap=<,>,h,l,[,]
 
   set foldenable
 
@@ -43,16 +46,6 @@ function SuperConfigFeel()
 
   " set mouse=a " Mouse support
   
-  " Turn off arrow keys, to make me learn HJKL
-  noremap  <Up> ""
-  noremap! <Up> <Esc>
-  noremap  <Down> ""
-  noremap! <Down> <Esc>
-  noremap  <Left> ""
-  noremap! <Left> <Esc>
-  noremap  <Right> ""
-  noremap! <Right> <Esc>
-
   " Tab-related stuff.
   nmap <C-Insert> :tabnew<CR>
   nmap <C-Delete> :tabclose<CR>
