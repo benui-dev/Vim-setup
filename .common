@@ -35,6 +35,7 @@ function SuperConfigFeel()
   filetype plugin indent on
   set tabstop=4
 
+
   set whichwrap=<,>,h,l,[,]
 
   set foldenable
@@ -103,6 +104,7 @@ function SuperConfigCustomMappings()
   nnoremap <silent><F2> <ESC>:TlistToggle<Return>
   nnoremap <silent><F6> <ESC>:NERDTreeToggle<Return>
   nnoremap <F4> :!perl %<cr>
+  nnoremap <F3> :!python %<cr>
   nnoremap <F8> :!p4 edit %<cr>
   
   " Changing tabs via minibuf explorer
@@ -129,6 +131,7 @@ function ConfigMiniBufExplorer()
 endfunction
 
 " Load plugins
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 " Config Auto Modes
 filetype plugin on
